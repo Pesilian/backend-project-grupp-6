@@ -1,6 +1,6 @@
-{"title":"Caffè Doppio","price":49,"_id":"7oEs44Dmu2tCmbX3"}
-{"title":"Kaffe Latte","price":54,"_id":"HfUkqjVZm89nIZ2e"}
+{"userId":2,"title":"Caffè Doppio","price":49,"_id":"7oEs44Dmu2tCmbX3"}
+{"userId":2,"title":"Kaffe Latte","price":54,"_id":"HfUkqjVZm89nIZ2e"}
 {"userId":2,"title":"Cortado","price":39,"_id":"QYUJKrsZYkqbBXwA"}
 {"userId":1,"title":"Cappuccino","price":49,"_id":"TXkUZnmxBo5jE5jr"}
-{"title":"Bryggkaffe","price":39,"_id":"nXqShnEkAJ4zfVcf"}
-{"title":"Caffè Doppio","price":49,"_id":"mzq7ywDjwvsq6VJY"}
+{"userId":1,"title":"Caffè Doppio","price":49,"_id":"mzq7ywDjwvsq6VJY"}
+{"userId":1,"title":"Bryggkaffe","price":39,"_id":"nXqShnEkAJ4zfVcf"}
