@@ -5,9 +5,7 @@ async function getOrderById(req, res) {
     // Hämta orderns ID från request params
     const orderId = req.params.orderId;
 
-    console.log(orderId);
-
-    // Använd find för att hämta en enskild orderhistorik baserat på orderns ID
+    // Använd findOne för att hämta en enskild order baserat på orderns ID
     const order = await orderDb.findOne({ _id: orderId });
 
     // Hämta aktuell tid

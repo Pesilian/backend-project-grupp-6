@@ -5,8 +5,10 @@ import authenticate from '../middleware/auth.js';
 
 const orderRouter = Router();
 
+// "POST" /order/
 orderRouter.post('/', createOrder);
 
+// "GET" /order/:orderId
 orderRouter.get('/:orderId', getOrderById);
 
 export default orderRouter;

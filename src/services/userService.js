@@ -56,10 +56,9 @@ async function getUserOrders(req, res) {
     // Hämta användarens ID från request params
     const userId = req.params.userId;
     console.log(userId);
+
     // Använd find för att hämta en enskild orderhistorik baserat på användarens ID
     const usersOrder = await orderDb.find({ userId: userId });
-
-    console.log(usersOrder);
 
     // Om det inte finns någon orderhistorik för den angivna användaren, skicka tillbaka ett felmeddelande med status 404
     if (usersOrder.length === 0) {
