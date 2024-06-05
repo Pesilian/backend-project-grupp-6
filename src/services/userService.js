@@ -62,7 +62,6 @@ async function getUserOrders(req, res) {
   const userId = req.params.userId;
 
   try {
-    console.log('hello');
     const orders = await usersOrder
       .find({ userId: Number(req.params.userId) })
       .exec();

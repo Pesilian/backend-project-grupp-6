@@ -14,18 +14,24 @@ async function createOrderGuest(req, res) {
   if (product.price !== price) {
     return res.status(400).json({ error: 'Invalid price' });
   }
-
-  const orderNumber = Date.now();
+  //För att visa eräknad leveranstid
   const orderTime = new Date();
+  const preparationTime = product.preptime;
 
-  const order = { title, price, orderNumber, orderTime };
+  const deliveryTime = new Date(orderTime.getTime() + preparationTime * 60000);
+
+  console.log(orderTime);
+
+  console.log(deliveryTime);
+
+  const order = { title, price, orderTime, deliveryTime };
   try {
     const newOrder = await guestOrder.insert(order);
     const response = {
       title: newOrder.title,
       price: newOrder.price,
-      ordernumber: newOrder.orderNumber,
       message: 'Order created successfully',
+      delivery: newOrder.deliveryTime,
     };
     res.status(201).json(response);
   } catch (error) {
@@ -114,56 +120,13 @@ async function deleteOrder(req, res) {
 
 async function getOrder(req, res) {
   try {
-    console.log('hello');
     const order = await guestOrder.findOne({ _id: req.params.id });
-    console.log('hello again');
-    res.send(order); // sends dbUsers back to the page
+    res.send(order);
   } catch (err) {
     console.error(err);
     res.status(500).send('An error occurred while fetching orders.');
   }
 }
-
-// async function deliveryTime(req, res) {
-//   const orderNumber = req.params.orderNumber;
-
-//   console.log(`fetching order: ${orderNumber}`);
-
-//   try {
-//     const order = await guestOrder.findOne({
-//       orderNumber,
-//     });
-//     console.log(`order found: ${JSON.stringify(order)}`);
-//   } catch (error) {
-//     res
-//       .status(500)
-//       .json({ message: 'An error occurred', error: error.message });
-//   }
-// }
-// }}
-//     if (!order) {
-//       return res.status(404).send('Order ej funnen');
-//     }
-
-//     if (!order.time) {
-//       return res
-//         .status(400)
-//         .json({ error: 'Order does not have a delivery time' });
-//     }
-
-//     const currentTime = new Date();
-
-//     res.status(200).json({
-//       orderNumber: order.orderNumber,
-//       kaffesort: order.title,
-//       orderTime: order.orderTime,
-//     });
-//   } catch (error) {
-//     res
-//       .status(500)
-//       .json({ message: 'An error occurred', error: error.message });
-//   }
-// }
 
 export {
   createOrderGuest,

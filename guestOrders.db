@@ -1,10 +1,17 @@
 {"title":"Caffè Doppio","price":49,"orderNumber":1717498480177,"orderTime":{"$$date":1717498480177},"_id":"2pJCNAsMv95w9Alt"}
 {"title":"Bryggkaffe","price":39,"_id":"3o5VMDSyXrnucZAB"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717578694889},"deliveryTime":{"$$date":1717585894889},"_id":"4QK6kjxttpoqgHWS"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717578966614},"deliveryTime":{"$$date":1717579686614},"_id":"5DVmI7hNyor300TD"}
 {"title":"Latte Macchiato","price":49,"_id":"9KMuytJHZCFwtGwE"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717579289965},"deliveryTime":{"$$date":1717580009965},"_id":"FgVSMQqtSwrDoxaE"}
 {"title":"Cappuccino","price":49,"_id":"IaqsnLSwlBbeK7zh"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717579133906},"deliveryTime":{"$$date":1717579853906},"_id":"MPKYRQGWj7QzgYmu"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717578991607},"deliveryTime":{"$$date":1717586191607},"_id":"Rp8yCD8NyvZ9TamC"}
 {"title":"Caffè Doppio","price":49,"_id":"RxD1Jmx7qeykjOJN"}
 {"title":"Bryggkaffe","price":39,"orderNumber":1717533604836,"orderTime":{"$$date":1717533604836},"_id":"aO3uH7QFDh3d9JSj"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717578651668},"deliveryTime":{"$$date":1717585851668},"_id":"apwmFO0kn4Wzmvp8"}
 {"title":"Caffè Doppio","price":49,"orderNumber":1717500452333,"orderTime":{"$$date":1717500452333},"_id":"cgnyApn9V5RF0OJQ"}
+{"title":"Bryggkaffe","price":39,"orderTime":{"$$date":1717578997030},"deliveryTime":{"$$date":1717586197030},"_id":"dn5btMmVVvZnqb62"}
 {"title":"Bryggkaffe","price":39,"orderNumber":1717513262996,"orderTime":{"$$date":1717513262996},"_id":"jAQLMveVGVJJAJAW"}
 {"title":"Caffè Doppio","price":49,"orderNumber":1717497729761,"orderTime":{"$$date":1717497729761},"_id":"onv982p3sFaNFv8H"}
 {"title":"Bryggkaffe","price":39,"orderNumber":1717501394065,"orderTime":{"$$date":1717501394065},"_id":"ytURBwQlS486wF1l"}
