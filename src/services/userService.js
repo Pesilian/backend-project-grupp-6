@@ -56,7 +56,7 @@ async function getUserOrders(req, res) {
     // Hämta användarens ID från request params
     const userId = req.params.userId;
     console.log(userId);
-    // Använd findOne för att hämta en enskild orderhistorik baserat på användarens ID
+    // Använd find för att hämta en enskild orderhistorik baserat på användarens ID
     const usersOrder = await orderDb.find({ userId: userId });
 
     console.log(usersOrder);
@@ -70,7 +70,7 @@ async function getUserOrders(req, res) {
     res.status(200).json({ orderCount: usersOrder.length, orders: usersOrder });
   } catch (error) {
     // Om ett fel uppstår vid hämtning av användarens orderhistorik, skicka tillbaka ett felmeddelande med status 400
-    res.status(400).json({ error: 'Failed to get users orders' });
+    res.status(500).json({ error: 'Failed to get users orders' });
   }
 }
 
