@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
-import { userDb } from "../config/db.js";
+import bcrypt from 'bcrypt';
+import { userDb, orderDb } from '../config/db.js';
 
 // Funktion för att registrera en ny användare
 
@@ -16,7 +16,7 @@ async function registerUser(req, res) {
     res.status(201).json(newUser);
   } catch (error) {
     // Om ett fel uppstår, returnera ett felmeddelande
-    res.status(400).json({ error: "Failed to register user" });
+    res.status(400).json({ error: 'Failed to register user' });
   }
 }
 
@@ -30,43 +30,47 @@ async function loginUser(req, res) {
     // Om något av användarnamn eller lösenord saknas, skicka tillbaka ett felmeddelande med status 400
     return res
       .status(400)
-      .json({ error: "Username and password are required" });
+      .json({ error: 'Username and password are required' });
   }
   try {
     // Sök efter användaren i vår databas för nya användare
     const user = userDb.find(
-      (u) => u.username === username && u.password === password
+      u => u.username === username && u.password === password
     );
 
     // Sätt global.currentUser för att indikera att användaren är inloggad
     global.currentUser = user;
 
     // Skicka tillbaka ett meddelande om att inloggningen var framgångsrik med status 200
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     // Om ett fel uppstår under inloggningen, skicka tillbaka ett felmeddelande med status 400
-    res.status(400).json({ error: "Failed to login user" });
+    res.status(400).json({ error: 'Failed to login user' });
   }
 }
 
 // Funktion för att hämta en användares orderhistorik
+
 async function getUserOrders(req, res) {
   try {
     // Hämta användarens ID från request params
     const userId = req.params.userId;
+    console.log(userId);
     // Använd findOne för att hämta en enskild orderhistorik baserat på användarens ID
-    const usersOrder = await orders.findOne({ userId });
+    const usersOrder = await orderDb.find({ userId: userId });
+
+    console.log(usersOrder);
 
     // Om det inte finns någon orderhistorik för den angivna användaren, skicka tillbaka ett felmeddelande med status 404
     if (usersOrder.length === 0) {
-      return res.status(404).json({ error: "No orders found" });
+      return res.status(404).json({ error: 'No orders found' });
     }
 
     // Skicka tillbaka användarens orderhistorik med status 200
-    res.status(200).json(usersOrder);
+    res.status(200).json({ orderCount: usersOrder.length, orders: usersOrder });
   } catch (error) {
     // Om ett fel uppstår vid hämtning av användarens orderhistorik, skicka tillbaka ett felmeddelande med status 400
-    res.status(400).json({ error: "Failed to get users orders" });
+    res.status(400).json({ error: 'Failed to get users orders' });
   }
 }
 
